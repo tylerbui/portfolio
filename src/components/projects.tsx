@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { ExternalLink, Github, X, Filter } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { projects, Project } from '@/data/projects'
+import Image from 'next/image'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,7 +25,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.42, 0, 0.58, 1] as const
     }
   }
 }
@@ -110,10 +111,11 @@ export function Projects() {
                   {/* Project Image */}
                   <div className="relative h-48 overflow-hidden">
                     {project.image ? (
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
@@ -204,17 +206,18 @@ export function Projects() {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal Header */}
-                <div className="relative">
+                <div className="relative h-64">
                   {selectedProject.image && (
-                    <img
+                    <Image
                       src={selectedProject.image}
                       alt={selectedProject.title}
-                      className="w-full h-64 object-cover rounded-t-2xl"
+                      fill
+                      className="object-cover rounded-t-2xl"
                     />
                   )}
                   <button
                     onClick={closeModal}
-                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors z-10"
                   >
                     <X className="w-5 h-5 text-gray-900" />
                   </button>

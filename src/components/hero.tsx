@@ -5,6 +5,7 @@ import { ArrowDown, Github, Linkedin, Mail, ExternalLink, ChevronLeft, ChevronRi
 import { cn } from '@/lib/utils'
 import { featuredProjects } from '@/data/projects'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,7 +25,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.42, 0, 0.58, 1] as const
     }
   }
 }
@@ -34,7 +35,7 @@ const floatingAnimation = {
   transition: {
     duration: 6,
     repeat: Infinity,
-    ease: "easeInOut"
+    ease: [0.42, 0, 0.58, 1] as const
   }
 }
 
@@ -105,7 +106,7 @@ export function Hero() {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
             animate={floatingAnimation}
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Tyler Bui
             </span>
@@ -168,12 +169,13 @@ export function Hero() {
             >
               <div className="flex flex-col md:flex-row items-center gap-6">
                 {/* Project Image */}
-                <div className="w-full md:w-1/2 h-64 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-xl flex items-center justify-center overflow-hidden">
+                <div className="w-full md:w-1/2 h-64 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-xl flex items-center justify-center overflow-hidden relative">
                   {featuredProjects[currentProject]?.image ? (
-                    <img 
+                    <Image 
                       src={featuredProjects[currentProject]?.image} 
                       alt={featuredProjects[currentProject]?.title}
-                      className="w-full h-full object-cover rounded-xl"
+                      fill
+                      className="object-cover rounded-xl"
                     />
                   ) : (
                     <div className="text-white/60 text-center">

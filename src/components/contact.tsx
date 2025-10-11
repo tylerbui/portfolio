@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Mail, Github, Linkedin, Send, MapPin, Clock, Phone } from 'lucide-react'
+import { Mail, Github, Linkedin, Send, MapPin, Clock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const containerVariants = {
@@ -23,7 +23,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: [0.42, 0, 0.58, 1] as const
     }
   }
 }
@@ -126,11 +126,11 @@ export function Contact() {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Have a project in mind or want to collaborate? I'd love to hear from you. 
-              Drop me a message and let's create something amazing together.
+              Have a project in mind or want to collaborate? I&apos;d love to hear from you. 
+              Drop me a message and let&apos;s create something amazing together.
             </p>
           </motion.div>
 
@@ -147,7 +147,7 @@ export function Contact() {
                     className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg"
                   >
                     <p className="text-green-400 font-medium">
-                      Thank you for your message! I'll get back to you soon.
+                      Thank you for your message! I&apos;ll get back to you soon.
                     </p>
                   </motion.div>
                 )}
