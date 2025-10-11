@@ -114,7 +114,7 @@ export function Hero() {
 
         <motion.div variants={itemVariants}>
           <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
-            Full Stack Developer & UI/UX Enthusiast
+            Full Stack Developer
           </h2>
         </motion.div>
 

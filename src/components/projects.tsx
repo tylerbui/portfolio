@@ -50,7 +50,7 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-20">
+    <section id="projects" className="bg-gradient-to-br from-gray-50 to-white py-16">
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           variants={containerVariants}
@@ -59,7 +59,7 @@ export function Projects() {
           viewport={{ once: true }}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               My Projects
             </h2>
@@ -70,7 +70,7 @@ export function Projects() {
           </motion.div>
 
           {/* Category Filter */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-8">
             {categories.map((category) => (
               <button
                 key={category}
@@ -92,7 +92,7 @@ export function Projects() {
           {/* Projects Grid */}
           <motion.div 
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="flex flex-wrap justify-center gap-8"
           >
             <AnimatePresence mode="wait">
               {filteredProjects.map((project, index) => (
@@ -103,7 +103,7 @@ export function Projects() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
+                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer w-full max-w-sm"
                   onClick={() => openModal(project)}
                   whileHover={{ y: -10 }}
                 >
