@@ -28,15 +28,27 @@ export const projects: Project[] = [
   },
   {
     id: 'stax-web-app',
-    title: 'Stax - Productivity Platform',
-    description: 'An all-in-one platform for productivity, collaboration, and growth with integrated suite of tools and e-commerce features.',
-    longDescription: 'Stax is a comprehensive productivity and collaboration platform that combines work management tools with e-commerce capabilities. Features include task management, team collaboration, shopping functionality with fast shipping, trending product discovery, and customer support systems. The platform offers a seamless experience for both productivity and commerce needs, built with modern web technologies.',
+    title: 'Stax - Ecommerce Platform',
+    description: 'A modern ecommerce platform with seamless shopping experience, fast shipping, trending products, and integrated customer support.',
+    longDescription: 'Stax is a full-featured ecommerce platform designed for modern online shopping. The platform includes product browsing with trending items, shopping cart functionality, fast shipping options, secure checkout process, order tracking, and integrated customer support. Built with a focus on user experience and performance, Stax delivers a smooth and responsive shopping journey across all devices.',
     image: '/projects/stax-mobile.png',
     mobileImage: '/projects/stax-dashboard.png',
     techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'E-commerce', 'API Integration'],
     liveUrl: 'https://stax-web-tu9k.vercel.app',
     githubUrl: 'https://github.com/tylerbui/stax',
     category: 'fullstack',
+    featured: true
+  },
+  {
+    id: 'social-link-dashboard',
+    title: 'Social Link - Social Dashboard',
+    description: 'A comprehensive social media dashboard for managing and analyzing your social presence across multiple platforms.',
+    longDescription: 'Social Link is a powerful social media management dashboard that provides a unified interface for tracking, analyzing, and managing your social media presence. Features include real-time analytics, post scheduling, engagement metrics, follower growth tracking, and cross-platform integration. The dashboard offers intuitive data visualization and insights to help optimize your social media strategy.',
+    image: '/projects/social-link-signup.png',
+    techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Chart.js', 'API Integration', 'Analytics'],
+    liveUrl: 'https://social-link-dashboard.vercel.app',
+    githubUrl: 'https://github.com/tylerbui/social-link',
+    category: 'web',
     featured: true
   }
   // Add more projects as you build them
