@@ -50,6 +50,19 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/tylerbui/social-link',
     category: 'web',
     featured: true
+  },
+  {
+    id: 'jobify-platform',
+    title: 'Jobify - Job Search Platform',
+    description: 'A modern job search and application tracking platform connecting job seekers with opportunities.',
+    longDescription: 'Jobify is a comprehensive job search platform designed to streamline the job hunting process. Features include advanced job search filters, application tracking, resume builder, company profiles, job recommendations, and real-time notifications. The platform provides an intuitive interface for both job seekers to find their perfect role and employers to discover top talent.',
+    image: '/projects/jobify.png',
+    mobileImage: '/projects/jobify2.png',
+    techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Node.js', 'Database', 'API Integration'],
+    liveUrl: 'https://jobify-platform.vercel.app',
+    githubUrl: 'https://github.com/tylerbui/jobify',
+    category: 'fullstack',
+    featured: true
   }
   // Add more projects as you build them
 ];
