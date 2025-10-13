@@ -63,6 +63,19 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/tylerbui/jobify',
     category: 'fullstack',
     featured: true
+  },
+  {
+    id: 'spark-vault',
+    title: 'SparkVault - Digital Products Marketplace',
+    description: 'A comprehensive digital marketplace platform for creators to sell and manage ebooks, courses, templates, and other digital products.',
+    longDescription: 'SparkVault is a full-featured digital marketplace that empowers creators to sell their digital products seamlessly. The platform features product categorization across courses, templates, audio content, visual assets, software & tools, and e-books. Includes a powerful seller dashboard for managing products, tracking sales analytics, managing customers, and configuring payment settings. Built with modern e-commerce best practices and a beautiful user interface.',
+    image: '/projects/sparkvault-1.png',
+    mobileImage: '/projects/sparkvault-2.png',
+    techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'E-commerce', 'Payment Integration', 'Analytics Dashboard'],
+    liveUrl: 'https://sparkvault.vercel.app',
+    githubUrl: 'https://github.com/tylerbui/sparkvault',
+    category: 'fullstack',
+    featured: true
   }
   // Add more projects as you build them
 ];
