@@ -114,16 +114,9 @@ export function Hero() {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+          <h2 className="text-xl md:text-2xl text-gray-300 mb-12 font-light">
             Full Stack Developer
           </h2>
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            I create beautiful, functional, and user-centered digital experiences.
-            Currently building amazing web and mobile applications with modern technologies.
-          </p>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-16">

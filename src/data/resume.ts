@@ -8,7 +8,7 @@ export interface ResumeData {
 }
 
 export const resumeData: ResumeData = {
-  summary: "Full Stack Developer with expertise in building modern web and mobile applications. Passionate about creating intuitive user experiences and scalable solutions using cutting-edge technologies. Experienced in both frontend and backend development, with a strong focus on clean code and best practices.",
+  summary: "",
   
   skills: [
     {
