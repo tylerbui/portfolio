@@ -47,7 +47,7 @@ export const projects: Project[] = [
     image: '/projects/social-link-signup.png',
     techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Chart.js', 'API Integration', 'Analytics'],
     liveUrl: 'https://social-link-dashboard.vercel.app',
-    githubUrl: 'https://github.com/tylerbui/social-link',
+    githubUrl: 'https://github.com/tylerbui/SocialLink',
     category: 'web',
     featured: true
   },
