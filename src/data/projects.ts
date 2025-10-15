@@ -76,6 +76,19 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/tylerbui/sparkvault',
     category: 'fullstack',
     featured: true
+  },
+  {
+    id: 'remedara',
+    title: 'Remedara - Healthcare Platform',
+    description: 'A modern healthcare platform designed to connect patients with medical professionals and streamline healthcare services.',
+    longDescription: 'Remedara is a comprehensive healthcare platform that bridges the gap between patients and healthcare providers. Features include appointment scheduling, patient portal, medical records management, prescription tracking, and telemedicine capabilities. Built with a focus on accessibility, security, and user-friendly interfaces to improve healthcare delivery and patient experience.',
+    image: '/projects/remedara.png',
+    mobileImage: '/projects/remedara2.png',
+    techStack: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Healthcare', 'Appointment System', 'Database'],
+    liveUrl: 'https://remedara-web.vercel.app',
+    githubUrl: 'https://github.com/tylerbui/remedara',
+    category: 'fullstack',
+    featured: true
   }
   // Add more projects as you build them
 ];
