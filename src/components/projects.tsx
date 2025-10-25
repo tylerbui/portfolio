@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { ExternalLink, Github, X, Filter } from 'lucide-react'
+import { ExternalLink, Github, X, Filter, ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { projects, Project } from '@/data/projects'
 import Image from 'next/image'
@@ -35,6 +35,7 @@ const categories = ['All', 'Featured', 'Web', 'Mobile', 'Fullstack']
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const filteredProjects = projects.filter(project => {
     if (activeCategory === 'All') return true
@@ -44,10 +45,31 @@ export function Projects() {
 
   const openModal = (project: Project) => {
     setSelectedProject(project)
+    setCurrentImageIndex(0)
   }
 
   const closeModal = () => {
     setSelectedProject(null)
+    setCurrentImageIndex(0)
+  }
+
+  const getProjectImages = (project: Project) => {
+    const images = [project.image]
+    if (project.mobileImage) images.push(project.mobileImage)
+    if (project.additionalImages) images.push(...project.additionalImages)
+    return images
+  }
+
+  const nextImage = () => {
+    if (!selectedProject) return
+    const images = getProjectImages(selectedProject)
+    setCurrentImageIndex((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    if (!selectedProject) return
+    const images = getProjectImages(selectedProject)
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
   }
 
   return (
@@ -205,22 +227,79 @@ export function Projects() {
                 className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Modal Header */}
+                {/* Modal Header with Image Gallery */}
                 <div className="relative h-64">
-                  {selectedProject.image && (
-                    <Image
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      fill
-                      className="object-cover rounded-t-2xl"
-                    />
-                  )}
+                  {(() => {
+                    const images = getProjectImages(selectedProject)
+                    const currentImage = images[currentImageIndex]
+                    
+                    // Show screen recording if it's the first item and exists
+                    if (currentImageIndex === 0 && selectedProject.screenRecording) {
+                      return (
+                        <video
+                          src={selectedProject.screenRecording}
+                          controls
+                          className="w-full h-full object-cover rounded-t-2xl"
+                          poster={currentImage}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      )
+                    }
+                    
+                    return currentImage && (
+                      <Image
+                        src={currentImage}
+                        alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
+                        fill
+                        className="object-cover rounded-t-2xl"
+                      />
+                    )
+                  })()}
+                  
+                  {/* Navigation arrows for multiple images */}
+                  {(() => {
+                    const images = getProjectImages(selectedProject)
+                    if (images.length > 1) {
+                      return (
+                        <>
+                          <button
+                            onClick={prevImage}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors z-10"
+                          >
+                            <ChevronLeft className="w-5 h-5 text-gray-900" />
+                          </button>
+                          <button
+                            onClick={nextImage}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors z-10"
+                          >
+                            <ChevronRight className="w-5 h-5 text-gray-900" />
+                          </button>
+                        </>
+                      )
+                    }
+                    return null
+                  })()}
+                  
                   <button
                     onClick={closeModal}
                     className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors z-10"
                   >
                     <X className="w-5 h-5 text-gray-900" />
                   </button>
+                  
+                  {/* Image counter */}
+                  {(() => {
+                    const images = getProjectImages(selectedProject)
+                    if (images.length > 1) {
+                      return (
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                          {currentImageIndex + 1} / {images.length}
+                        </div>
+                      )
+                    }
+                    return null
+                  })()}
                 </div>
 
                 {/* Modal Content */}

@@ -5,6 +5,8 @@ export interface Project {
   longDescription?: string;
   image: string;
   mobileImage?: string;
+  additionalImages?: string[];
+  screenRecording?: string;
   techStack: string[];
   liveUrl: string;
   githubUrl?: string;
@@ -88,6 +90,31 @@ export const projects: Project[] = [
     liveUrl: 'https://remedara-web.vercel.app',
     githubUrl: 'https://github.com/tylerbui/remedara',
     category: 'fullstack',
+    featured: true
+  },
+  {
+    id: 'remedara-mobile',
+    title: 'Remedara Mobile - Healthcare App',
+    description: 'A comprehensive mobile healthcare application with appointment scheduling, patient dashboard, prescription management, and provider directory.',
+    longDescription: 'Remedara Mobile is a full-featured healthcare mobile application built with React Native that provides patients with easy access to healthcare services. Features include secure authentication, intuitive appointment scheduling with time slot selection, comprehensive health dashboard, prescription management, lab results tracking, healthcare provider directory, and personalized settings. The app focuses on user experience, accessibility, and security to deliver seamless healthcare management on mobile devices.',
+    image: '/projects/RemedaraDashboard.PNG',
+    mobileImage: '/projects/RemedaraSplash.PNG',
+    screenRecording: '/projects/remedara-mobile-demo.mp4',
+    additionalImages: [
+      '/projects/RemedaraAuth.PNG',
+      '/projects/RemedaraAppointments.PNG',
+      '/projects/RemedaraChooseTime.PNG',
+      '/projects/RemedaraHealthcareProviders.PNG',
+      '/projects/RemedaraLabResults.PNG',
+      '/projects/RemedaraLinkProviders.jpg',
+      '/projects/RemedaraOverview.PNG',
+      '/projects/RemedaraPrescriptions.PNG',
+      '/projects/RemedaraSettings.PNG'
+    ],
+    techStack: ['React Native', 'TypeScript', 'JavaScript', 'Mobile Development', 'Healthcare', 'Appointment System', 'Mobile UI/UX'],
+    liveUrl: 'https://remedara-web.vercel.app',
+    githubUrl: 'https://github.com/tylerbui/remedara',
+    category: 'mobile',
     featured: true
   }
   // Add more projects as you build them
